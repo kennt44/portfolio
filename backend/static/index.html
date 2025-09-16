@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kenneth Thuo | Junior Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Welcome Section with Animation -->
+    <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="container mx-auto px-6 py-12 text-center">
+<img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coding related photo with laptop and code on screen" class="w-48 h-48 mx-auto rounded-full object-cover border-4 border-white shadow-lg floating mb-8">
+            <h1 class="text-5xl font-bold text-gray-800 mb-4 typing">Welcome to my Portfolio</h1>
+<p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8 slide-in">Hi, I'm <span class="font-bold text-blue-600">Kenneth Thuo</span>, a passionate Junior Engineer crafting digital experiences that matter.</p>
+            <div class="slide-in">
+                <button id="exploreBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    Explore My Skills <i class="fas fa-arrow-down ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Showcase - Interactive Carousel -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Technical Expertise</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+<!-- Frontend Card -->
+<div class="skill-card bg-white rounded-xl p-6 shadow-md transition-all duration-300 hover:border-l-4 hover:border-blue-500">
+    <div class="text-blue-500 mb-4">
+        <i class="fas fa-laptop-code text-4xl"></i>
+    </div>
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">Frontend Development</h3>
+    <p class="text-gray-600 mb-4">Crafting responsive, accessible user interfaces with React, HTML, and CSS.</p>
+    <div class="flex flex-wrap gap-2">
+        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">React</span>
+        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
+        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">CSS</span>
+    </div>
+</div>
+                
+<!-- Backend Card -->
+<div class="skill-card bg-white rounded-xl p-6 shadow-md transition-all duration-300 hover:border-l-4 hover:border-green-500">
+    <div class="text-green-500 mb-4">
+        <i class="fas fa-server text-4xl"></i>
+    </div>
+    <h3 class="text-xl font-semibold mb-3 text-gray-800">Backend Development</h3>
+    <p class="text-gray-600 mb-4">Building scalable, secure server-side applications with Flask and Python.</p>
+    <div class="flex flex-wrap gap-2">
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Flask</span>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Python</span>
+    </div>
+</div>
+                
+                <!-- DevOps Card -->
+                <div class="skill-card bg-white rounded-xl p-6 shadow-md transition-all duration-300 hover:border-l-4 hover:border-purple-500">
+                    <div class="text-purple-500 mb-4">
+                        <i class="fas fa-cloud text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">DevOps & Cloud</h3>
+                    <p class="text-gray-600 mb-4">Implementing CI/CD pipelines and cloud infrastructure for seamless deployments.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">AWS</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">GCP</span>
+                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Terraform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Gallery with Interactive Slider -->
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Featured Projects</h2>
+            
+            <div class="relative">
+                <div id="projectSlider" class="grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden">
+                    <!-- New Project 1 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-md relative">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Daily development challenges and coding projects" class="w-full h-64 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <div class="text-white p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Moringa Daily Dev</h3>
+                                <p class="mb-4">Daily development challenges and projects from Moringa School.</p>
+                                <button class="view-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm" onclick="window.open('https://moringa-daily-dev-nr3m.onrender.com', '_blank')" title="Note: The project link may be temporarily unavailable.">View Project</button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Moringa Daily Dev</h3>
+                            <p class="text-gray-600">Web Development</p>
+                        </div>
+                    </div>
+
+                    <!-- New Project 2 -->
+                    <div class="project-card bg-white rounded-xl overflow-hidden shadow-md relative">
+                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Music app interface with playlists and controls" class="w-full h-64 object-cover">
+                        <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                            <div class="text-white p-6 text-center">
+                                <h3 class="text-xl font-bold mb-2">Music App</h3>
+                                <p class="mb-4">A music streaming app with playlists and user controls.</p>
+                                <button class="view-btn bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full text-sm" onclick="window.open('https://music-app-rose-three.vercel.app/', '_blank')">View Project</button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">Music App</h3>
+                            <p class="text-gray-600">Web Development</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="prevProject" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md -ml-4 z-10">
+                    <i class="fas fa-chevron-left text-blue-600"></i>
+                </button>
+                <button id="nextProject" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md -mr-4 z-10">
+                    <i class="fas fa-chevron-right text-blue-600"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Professional Journey</h2>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 w-1 h-full bg-gradient-to-b from-blue-400 to-indigo-600 transform -translate-x-1/2"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    
+                    <!-- Item 3 -->
+                    <div class="timeline-item relative">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 md:pr-12 md:text-right py-4 md:py-0">
+                                <h3 class="text-xl font-bold text-gray-800">Full-Stack Developer</h3>
+                                <p class="text-gray-600">Moringa School | 2024 - 2025</p>
+                            </div>
+                            <div class="hidden md:block md:w-1/2"></div>
+                        </div>
+                        <div class="md:flex md:items-center">
+                            <div class="hidden md:block md:w-1/2 md:pr-12"></div>
+                            <div class="md:w-1/2 md:pl-12 py-4">
+                                <p class="text-gray-700">Built responsive user interfaces for 15+ client projects, improving bounce rates by 25% through UX/UI optimizations and performance enhancements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-16">Let's Work Together</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 p-12 text-white">
+                        <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                        <p class="mb-6">I'm currently available for full-time opportunities and freelance projects. Reach out and let's discuss how I can contribute to your team.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope mr-4"></i>
+                                <span>kennjorothuo@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone mr-4"></i>
+                                <span>+254 745 050 583</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt mr-4"></i>
+                                <span>Nairobi, Kenya</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-12">
+<form id="contactForm">
+    <div class="mb-6">
+        <label for="name" class="block text-gray-700 mb-2">Name</label>
+        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+    </div>
+    <div class="mb-6">
+        <label for="email" class="block text-gray-700 mb-2">Email</label>
+        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+    </div>
+    <div class="mb-6">
+        <label for="message" class="block text-gray-700 mb-2">Message</label>
+        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+    </div>
+    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg transition duration-300">Send Message</button>
+</form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-2xl font-bold">Kenneth Thuo</h2>
+                    <p class="text-gray-400 mt-2">Full-Stack Software Engineer</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-medium text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2025 Kenneth Thuo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive elements functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to skills section when button is clicked
+            document.getElementById('exploreBtn').addEventListener('click', function() {
+                document.getElementById('skills').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Animate elements as they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.slide-in').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Project slider functionality
+            const slider = document.getElementById('projectSlider');
+            const prevBtn = document.getElementById('prevProject');
+            const nextBtn = document.getElementById('nextProject');
+            let currentSlide = 0;
+            
+            function updateSlider() {
+                const slideWidth = document.querySelector('.project-card').offsetWidth;
+                slider.style.transform = `translateX(-${currentSlide * (slideWidth + 32)}px)`;
+            }
+            
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < 2) {
+                    currentSlide++;
+                    updateSlider();
+                }
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlider();
+                }
+            });
+            
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value
+    };
+
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        alert(data.message || 'Message sent successfully! I will get back to you soon.');
+        form.reset();
+    })
+    .catch(error => {
+        alert('There was a problem sending your message. Please try again later.');
+        console.error('Error:', error);
+    });
+});
+            
+            // Additional interactivity for skills cards
+            document.querySelectorAll('.skill-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('i');
+                    icon.classList.add('animate-bounce');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('i');
+                    icon.classList.remove('animate-bounce');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
