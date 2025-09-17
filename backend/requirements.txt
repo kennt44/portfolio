@@ -9,3 +9,4 @@ torch==2.2.0
 gtts==2.5.0
 SpeechRecognition==3.10.0
 rapidfuzz==3.6.1
+gunicorn==21.2.0
