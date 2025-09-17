@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Welcome from './components/Welcome';
 import Skills from './components/Skills';
@@ -9,14 +9,30 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 function App() {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const handleScroll = () => {
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = totalScroll / windowHeight;
+      setScrollProgress(scroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="font-sans">
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+      ></div>
       <div className="particles">
-        {[...Array(20)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
             className="particle"
@@ -24,8 +40,8 @@ function App() {
               left: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 10}s`,
               animationDuration: `${10 + Math.random() * 10}s`,
-              width: `${2 + Math.random() * 4}px`,
-              height: `${2 + Math.random() * 4}px`,
+              width: `${2 + Math.random() * 6}px`,
+              height: `${2 + Math.random() * 6}px`,
             }}
           />
         ))}

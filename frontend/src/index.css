@@ -49,12 +49,25 @@
 
 body {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-    url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+    linear-gradient(rgba(0, 0, 50, 0.3), rgba(0, 0, 50, 0.3)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   animation: backgroundShift 20s ease-in-out infinite;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+  animation: shimmer 5s infinite;
+  pointer-events: none;
+  z-index: -1;
 }
 
 /* Cool background animation */
@@ -63,7 +76,49 @@ body {
   50% { background-position: center 10px; }
 }
 
-/* Add subtle particle effect */
+/* Glassmorphism effect */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Parallax effect */
+.parallax {
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
+}
+
+/* Glow hover effect */
+.glow-hover:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+}
+
+/* Shimmer effect for background */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Enhanced particle effect */
 .particles {
   position: fixed;
   top: 0;
@@ -81,9 +136,42 @@ body {
   animation: floatParticle 10s linear infinite;
 }
 
+.particle:nth-child(odd) {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+.particle:nth-child(3n) {
+  background: rgba(147, 51, 234, 0.2);
+}
+
 @keyframes floatParticle {
   0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transform-origin: left;
+  z-index: 1000;
+}
+
+/* Background image for Get in Touch card */
+.contact-bg {
+  background: rgba(255, 255, 255, 0.1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }

@@ -1,8 +1,16 @@
-# TODO: Integrate AI Tutor into Portfolio App
+# Portfolio Enhancement Tasks
 
-## Tasks
-- [x] Update frontend/src/App.js to add AITutor import and component
-- [x] Ensure backend AI Tutor API is functional
-- [ ] Test the app to ensure AI Tutor works with the portfolio
-- [ ] Verify frontend responsiveness with AITutor
-- [ ] Add speech recognition to ChatBot component for pronunciation evaluation
+## Completed Tasks
+- [x] Set WhatsApp image as profile photo in Welcome component
+- [x] Updated background image to cooler-toned mountain lake scene with blue overlay
+- [x] Enhance Welcome component with glassmorphism effect on container
+- [x] Add subtle parallax effect on profile photo
+- [x] Improve hover effects on Explore button (add glow or scale)
+- [x] Add gradient overlay and shimmer effect to background
+- [x] Enhance particle system with varied sizes, speeds, and colors
+- [x] Add scroll progress indicator
+- [x] Implement dynamic greeting message based on time of day
+
+## Pending Enhancement Tasks
+- [x] Test all enhancements for smooth performance
+- [x] Get user feedback on improvements
