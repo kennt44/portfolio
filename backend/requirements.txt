@@ -1,2 +1,11 @@
 Flask==2.3.2
 SQLAlchemy==2.0.19
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+transformers==4.35.2
+torch==2.2.0
+gtts==2.5.0
+SpeechRecognition==3.10.0
+rapidfuzz==3.6.1

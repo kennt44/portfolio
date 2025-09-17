@@ -24,11 +24,12 @@ from email.mime.multipart import MIMEMultipart
 from fastapi import FastAPI, HTTPException, Body, Query, File, UploadFile, Request
 from fastapi.responses import JSONResponse, StreamingResponse, HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
 
 # SQLAlchemy for both databases
-import sqlalchemy as sa
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime, Date, Float, ForeignKey
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
 # Optional heavy deps for AI Tutor
@@ -62,48 +63,48 @@ except Exception:
 # ------------------------
 # Contact Database (Flask part)
 # ------------------------
-contact_engine = sa.create_engine('sqlite:///contact_messages.db', connect_args={"check_same_thread": False} if 'sqlite' in 'sqlite:///contact_messages.db' else {})
+contact_engine = create_engine('sqlite:////home/kj/portfolio/portfolio/backend/contact_messages.db', connect_args={"check_same_thread": False} if 'sqlite' in 'sqlite:////home/kj/portfolio/portfolio/backend/contact_messages.db' else {})
 ContactSessionLocal = sessionmaker(bind=contact_engine, autoflush=False, autocommit=False)
 ContactBase = declarative_base()
 
 class ContactMessage(ContactBase):
     __tablename__ = "contact_messages"
-    id = sa.Column(sa.Integer, primary_key=True)
-    name = sa.Column(sa.String(120), nullable=False)
-    email = sa.Column(sa.String(120), nullable=False)
-    message = sa.Column(sa.Text, nullable=False)
-    timestamp = sa.Column(sa.DateTime, default=datetime.datetime.utcnow)
+    id = Column(Integer, primary_key=True)
+    name = Column(String(120), nullable=False)
+    email = Column(String(120), nullable=False)
+    message = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.datetime.utcnow)
 
 ContactBase.metadata.create_all(contact_engine)
 
 # ------------------------
 # AI Tutor Database
 # ------------------------
-tutor_engine = sa.create_engine('sqlite:///teach_me_ai.db', connect_args={"check_same_thread": False} if 'sqlite' in 'sqlite:///teach_me_ai.db' else {})
+tutor_engine = create_engine('sqlite:////home/kj/portfolio/portfolio/backend/teach_me_ai.db', connect_args={"check_same_thread": False} if 'sqlite' in 'sqlite:////home/kj/portfolio/portfolio/backend/teach_me_ai.db' else {})
 TutorSessionLocal = sessionmaker(bind=tutor_engine, autoflush=False, autocommit=False)
 TutorBase = declarative_base()
 
 class Course(TutorBase):
     __tablename__ = "courses"
-    id = sa.Column(sa.Integer, primary_key=True)
-    language = sa.Column(sa.String, index=True)
-    iso = sa.Column(sa.String, index=True)
-    level = sa.Column(sa.String, default="A1")
-    description = sa.Column(sa.Text, default="")
+    id = Column(Integer, primary_key=True)
+    language = Column(String, index=True)
+    iso = Column(String, index=True)
+    level = Column(String, default="A1")
+    description = Column(Text, default="")
     cards = relationship("Card", back_populates="course")
 
 class Card(TutorBase):
     __tablename__ = "cards"
-    id = sa.Column(sa.Integer, primary_key=True)
-    course_id = sa.Column(sa.Integer, sa.ForeignKey("courses.id"), index=True)
-    front = sa.Column(sa.Text)
-    back = sa.Column(sa.Text)
-    hint = sa.Column(sa.Text, default="")
-    tag = sa.Column(sa.String, default="vocab")
-    interval = sa.Column(sa.Integer, default=1)
-    repetition = sa.Column(sa.Integer, default=0)
-    efactor = sa.Column(sa.Float, default=2.5)
-    next_review = sa.Column(sa.Date, default=datetime.date.today)
+    id = Column(Integer, primary_key=True)
+    course_id = Column(Integer, ForeignKey("courses.id"), index=True)
+    front = Column(Text)
+    back = Column(Text)
+    hint = Column(Text, default="")
+    tag = Column(String, default="vocab")
+    interval = Column(Integer, default=1)
+    repetition = Column(Integer, default=0)
+    efactor = Column(Float, default=2.5)
+    next_review = Column(Date, default=datetime.date.today)
     course = relationship("Course", back_populates="cards")
 
 TutorBase.metadata.create_all(tutor_engine)
@@ -113,8 +114,16 @@ TutorBase.metadata.create_all(tutor_engine)
 # ------------------------
 app = FastAPI(title="Portfolio with AI Tutor", version="1.0")
 
-# Mount static files
-app.mount("/static", StaticFiles(directory="build/static"), name="static")
+# Add CORS middleware to allow React app to communicate with backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # React dev server
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Note: Static files are served by React development server
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -284,10 +293,6 @@ async def evaluate_pronunciation(expected: str, uploaded_file: UploadFile):
 # ------------------------
 # Portfolio Routes (Flask-like)
 # ------------------------
-
-@app.get("/")
-def serve_index():
-    return FileResponse("build/index.html")
 
 @app.post("/api/contact")
 async def contact(request: Request):

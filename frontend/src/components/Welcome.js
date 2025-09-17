@@ -25,8 +25,8 @@ const Welcome = () => {
     <section id="welcome" className="min-h-screen flex items-center justify-center">
       <div className="container mx-auto px-6 py-12 text-center">
         <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-          alt="Coding related photo with laptop and code on screen"
+          src="https://via.placeholder.com/192x192?text=Profile+Photo"
+          alt="Profile photo"
           className="w-48 h-48 mx-auto rounded-full object-cover border-4 border-white shadow-lg floating mb-8"
         />
         <h1 className="text-5xl font-bold text-gray-800 mb-4 typing">Welcome to my Portfolio</h1>
