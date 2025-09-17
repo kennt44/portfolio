@@ -8,11 +8,6 @@ const Contact = () => {
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-16">Get in Touch</h2>
 
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-12 text-center">
-          <img
-            src="/images/WhatsApp_Image_2025-08-15_at_11.06.05_f880c9dd.jpg"
-            alt="Profile photo"
-            className="w-32 h-32 mx-auto rounded-full object-cover border-4 border-blue-200 shadow-lg mb-8"
-          />
           <p className="text-gray-600 mb-8">
             I'm currently available for full-time opportunities and freelance projects. Reach out and let's discuss how I can contribute to your team.
           </p>
